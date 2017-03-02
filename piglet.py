@@ -1,4 +1,7 @@
-vowels = ["a","o","u","e","i","y"]
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+vowels = ["a","o","u","e","i","y", "å", "ä", "ö"]
 
 def pig(word):
     return "igwordpay"
