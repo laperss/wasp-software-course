@@ -10,7 +10,10 @@ sudo apt-get install python-pip
 sudo pip install buildit
 ```
 ## How to run the product:
+```
 python main.py
-
+```
 ## How to run the tests:
+```
 bld tests
+```
