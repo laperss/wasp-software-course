@@ -15,7 +15,7 @@ def pig(word):
     """ Turn the word into a pig latin word """
     word = word.lower()
     if consonant(word[0]):
-        pigword = word[1:-1] + word[0] + "ay"
+        pigword = word[1:] + word[0] + "ay"
     else:
         pigword = word + "way"
     return pigword
