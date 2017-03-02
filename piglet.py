@@ -1,3 +1,5 @@
+vowels = ["a","o","u","e","i","y"]
+
 def pig(word):
     return "igwordpay"
 
