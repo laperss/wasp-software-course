@@ -5,6 +5,7 @@ class TestMain(unittest.TestCase):
     def test_pig(self):
         self.assertEqual(pig("linnea"), "innealay")
         self.assertEqual(pig("hallo"), "allohay")
+        self.assertEqual(pig("switch"), "itchsway")
         self.assertEqual(pig("engineering"), "engineeringway")
 
     def test_read_file(self):
