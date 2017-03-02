@@ -18,11 +18,26 @@ def pig(word):
         for letter in word:
             if not consonant(letter):
                 pigword = word[word.find(letter):] +  word[0:word.find(letter)] + "ay"
+                break
     else:
         pigword = word + "way"
     return pigword
 
-if __name__ == "__main__":
+def read_file(filename):
+    with open(filename) as f:
+        # Remove newlines
+        lines = [line.rstrip('\n') for line in f.readlines()]
+        # Remove empty strings
+        lines = filter(None, lines)
+        return lines
+
+def main():
+    lines = read_file("example_wordlist")
+    for line in lines:
+        print(pig(line))
     word = str(raw_input("word: "))
     pigword = pig(word)
     print pigword
+
+if __name__ == "__main__":
+    main()
