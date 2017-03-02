@@ -3,7 +3,9 @@ from piglet import *
 
 class TestMain(unittest.TestCase):
     def test_pig(self):
-        self.assertEqual(pig("random"), "igwordpay")
+        self.assertEqual(pig("linnea"), "innealay")
+        self.assertEqual(pig("hallo"), "allohay")
+        self.assertEqual(pig("engineering"), "engineeringway")
 
     def test_read_file(self):
         words = read_file("example_wordlist")

@@ -3,8 +3,22 @@
 
 vowels = ["a","o","u","e","i","y", "å", "ä", "ö"]
 
+
+def consonant(letter):
+    """ Return True if the input is a consonant """
+    if letter in vowels:
+        return False
+    else:
+        return True
+
 def pig(word):
-    return "igwordpay"
+    """ Turn the word into a pig latin word """
+    word = word.lower()
+    if consonant(word[0]):
+        pigword = word[1:-1] + word[0] + "ay"
+    else:
+        pigword = word + "way"
+    return pigword
 
 def read_file(filename):
     with open(filename) as f:
