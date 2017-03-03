@@ -1,5 +1,4 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python3
 
 consonants = "b,c,d,f,g,h,j,k,l,m,n,p,q,r,s,t,v,w,x,z".split(",")
 
@@ -32,16 +31,16 @@ def read_file(filename):
         # Remove newlines
         lines = [line.rstrip('\n') for line in f.readlines()]
         # Remove empty strings
-        lines = filter(None, lines)
+        lines = list(filter(None, lines))
         return lines
 
 def main():
     lines = read_file("example_wordlist")
     for line in lines:
         print(pig(line))
-    word = str(raw_input("word: "))
+    word = str(input("word: "))
     pigword = pig(word)
-    print pigword
+    print(pigword)
 
 if __name__ == "__main__":
     main()
