@@ -11,7 +11,7 @@ sudo pip install buildit
 ```
 ## How to run the product:
 ```
-python3 piglet.py
+usage: piglet.py [word1 word2 ...] [-h] [-f file]
 ```
 ## How to run the tests:
 ```

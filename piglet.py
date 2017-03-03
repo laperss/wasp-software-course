@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+import sys
+import getopt
 
 consonants = "b,c,d,f,g,h,j,k,l,m,n,p,q,r,s,t,v,w,x,z".split(",")
 
@@ -6,10 +8,10 @@ def consonant(letter):
     """ Return True if the input is a consonant """
     return letter in consonants
 
-def is_capitalized(word):    
+def is_capitalized(word):
     return word[0].isupper()
 
-def title_format(word, capitalized):    
+def title_format(word, capitalized):
     return word.title() if capitalized else word
 
 def pig(word):
@@ -34,13 +36,39 @@ def read_file(filename):
         lines = list(filter(None, lines))
         return lines
 
-def main():
-    lines = read_file("example_wordlist")
+def translate_file(filename):
+    lines = read_file(filename)
     for line in lines:
         print(pig(line))
-    word = str(input("word: "))
-    pigword = pig(word)
-    print(pigword)
+
+def usage():
+    print("usage: piglet.py [word1 word2 ...] [-h] [-f file]")
+
+def main(argv):
+
+    # Parse command line options
+    try:
+        opts, args = getopt.getopt(sys.argv[1:], "hf:", ["help", "file="])
+    except getopt.GetoptError as err:
+        print(err)
+        usage()
+        sys.exit(2)
+    for opt, arg in opts:
+        if opt in ("-h", "--help"):
+            usage()
+        elif opt in ("-f", "--file"):
+            translate_file(arg)
+        sys.exit()
+
+    # Print usage if no input is provided
+    if not opts and not argv:
+        usage()
+        sys.exit()
+
+    # Translate input words
+    if argv:
+        for word in argv:
+            print(pig(word))
 
 if __name__ == "__main__":
-    main()
+    main(sys.argv[1:])
