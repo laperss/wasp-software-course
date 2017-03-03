@@ -3,10 +3,11 @@
 
 vowels = ["a","o","u","e","i","y", "å", "ä", "ö"]
 
-
 def consonant(letter):
     """ Return True if the input is a consonant """
     if letter in vowels:
+        return False
+    elif letter.decode('utf-8').lower() in map(lambda x: x.decode('utf-8'), vowels):
         return False
     else:
         return True
