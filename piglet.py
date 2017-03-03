@@ -1,19 +1,23 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-vowels = ["a","o","u","e","i","y", "å", "ä", "ö"]
-
+consonants = "b,c,d,f,g,h,j,k,l,m,n,p,q,r,s,t,v,w,x,z".split(",")
 
 def consonant(letter):
     """ Return True if the input is a consonant """
-    if letter in vowels:
-        return False
-    else:
-        return True
+    return letter in consonants
+
+def is_capitalized(word):    
+    return word[0].isupper()
+
+def title_format(word, capitalized):    
+    return word.title() if capitalized else word
 
 def pig(word):
     """ Turn the word into a pig latin word """
+    capitalized = is_capitalized(word)
     word = word.lower()
+    pigword = word
     if consonant(word[0]):
         for letter in word:
             if not consonant(letter):
@@ -21,7 +25,7 @@ def pig(word):
                 break
     else:
         pigword = word + "way"
-    return pigword
+    return title_format(pigword, capitalized)
 
 def read_file(filename):
     with open(filename) as f:

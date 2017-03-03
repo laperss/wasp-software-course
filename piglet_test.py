@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import unittest
 from piglet import *
 
@@ -7,6 +10,11 @@ class TestMain(unittest.TestCase):
         self.assertEqual(pig("hallo"), "allohay")
         self.assertEqual(pig("switch"), "itchsway")
         self.assertEqual(pig("engineering"), "engineeringway")
+        self.assertEqual(pig("English"), "Englishway")
+        self.assertEqual(pig("I"), "Iway")
+        self.assertEqual(pig("XXX"), "Xxx")
+        self.assertEqual(pig("Plopp"), "Oppplay")
+        self.assertEqual(pig("translation"), "anslationtray")
 
     def test_read_file(self):
         words = read_file("example_wordlist")
