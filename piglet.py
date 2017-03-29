@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import sys
 import getopt
+import re
 
 consonants = "b,c,d,f,g,h,j,k,l,m,n,p,q,r,s,t,v,w,x,z".split(",")
 
@@ -8,6 +9,14 @@ def consonant(letter):
     """ Return True if the input is a consonant """
     return letter in consonants
 
+def extract_punctuation(text):
+    new_text = []
+    for word in text:
+        m = re.split('(\W+)',word)
+        m = list(filter(None, m))
+        new_text.extend(m)
+    return new_text
+        
 def is_capitalized(word):
     return word[0].isupper()
 
@@ -19,6 +28,9 @@ def pig(word):
     capitalized = is_capitalized(word)
     word = word.lower()
     pigword = word
+    if re.match('\W+',word) != None:
+        return word
+
     if consonant(word[0]):
         for letter in word:
             if not consonant(letter):
@@ -67,7 +79,8 @@ def main(argv):
 
     # Translate input words
     if argv:
-        for word in argv:
+        text = extract_punctuation(argv)
+        for word in text:
             print(pig(word), end=" ")
     print()
 
