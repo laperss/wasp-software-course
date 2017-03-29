@@ -17,3 +17,5 @@ usage: piglet.py [word1 word2 ...] [-h] [-f file]
 ```
 bld tests
 ```
+
+_Note: This assignment is fininshed_
