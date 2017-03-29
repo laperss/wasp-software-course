@@ -1,4 +1,4 @@
-# wasp-software-course
+# wasp-software-course[![Build Status](https://www.travis-ci.org/laperss/wasp-software-course.svg?branch=master)](https://www.travis-ci.org/laperss/wasp-software-course)
 KTH WASP Software Engineering course. Implement a test software toolchain. 
 
 ## Dependencies
