@@ -68,7 +68,8 @@ def main(argv):
     # Translate input words
     if argv:
         for word in argv:
-            print(pig(word))
+            print(pig(word), end=" ")
+    print()
 
 if __name__ == "__main__":
     main(sys.argv[1:])
